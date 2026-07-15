@@ -1,0 +1,16 @@
+def show_main_menu():
+    print("=" * 42)
+    print("|  Exchange Rate Calculator  |")
+    print("=" * 42)
+    print()
+    print("Welcome! Select a currency pair to continue.")
+    print()
+    print("1. USD ↔ PEN")
+    print("2. EUR ↔ PEN")
+    print("3. USD ↔ EUR")
+    print("4. GBP ↔ PEN")
+    print("5. Exit")
+    print()
+    print("Choose an Option")
+
+show_main_menu()
