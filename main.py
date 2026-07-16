@@ -31,10 +31,20 @@ def show_conversion_direction():
 
 
 def get_conversion_direction():
-    direction = input("> ")
+
+    while True:
+
+        direction = input("> ")
+
+        if direction in ["1", "2"]:
+            break
+
+        print()
+        print("Invalid option. Please choose 1 or 2.")
+        print()
+
     return direction
-
-
+    
 def get_amount():
 
     while True:
@@ -109,5 +119,3 @@ while selected_option != "5":
         print()
         print("Invalid option. Please try again.")
         print()
-
-        
