@@ -18,7 +18,16 @@ def show_main_menu():
 
 
 def get_user_option():
-    user_option = input("> ")
+
+    while True:
+
+        user_option = input("> ")
+
+        if user_option in ["1", "2", "3", "4", "5"]:
+            break
+        else:
+            print("Invalid option. Please choose between 1 and 5.")
+
     return user_option
 
 
@@ -44,7 +53,7 @@ def get_conversion_direction():
         print()
 
     return direction
-    
+
 def get_amount():
 
     while True:
