@@ -36,8 +36,20 @@ def get_conversion_direction():
 
 
 def get_amount():
-    amount = input("Enter the amount: ")
-    amount = float(amount)
+
+    while True:
+
+        amount = input("Enter the amount: ")
+
+        try:
+            amount = float(amount)
+            break
+
+        except:
+            print()
+            print("Invalid amount. Please enter a valid number.")
+            print()
+
     return amount
 
 
@@ -53,30 +65,47 @@ def convert_currency(selected_option, selected_direction, amount, exchange_rate)
 def show_result(converted_amount):
     print()
     print("The converted amount is:", converted_amount)
+    print()
 
 
 # ==========================
 # Main Program
 # ==========================
 
-show_main_menu()
+selected_option = ""
 
-selected_option = get_user_option()
+while selected_option != "5":
 
-show_conversion_direction()
+    show_main_menu()
 
-selected_direction = get_conversion_direction()
+    selected_option = get_user_option()
 
-amount = get_amount()
+    if selected_option == "5":
+        print()
+        print("Goodbye!")
+        print("Thank you for using the program!")
 
-# Temporary exchange rate (later it will come from an API)
-exchange_rate = 3.40
+    elif selected_option in ["1", "2", "3", "4"]:
 
-converted_amount = convert_currency(
-    selected_option,
-    selected_direction,
-    amount,
-    exchange_rate
-)
+        show_conversion_direction()
 
-show_result(converted_amount)
+        selected_direction = get_conversion_direction()
+
+        amount = get_amount()
+
+        # Temporary exchange rate (later it will come from an API)
+        exchange_rate = 3.40
+
+        converted_amount = convert_currency(
+            selected_option,
+            selected_direction,
+            amount,
+            exchange_rate
+        )
+
+        show_result(converted_amount)
+
+    else:
+        print()
+        print("Invalid option. Please try again.")
+        print()
