@@ -71,8 +71,21 @@ def get_amount():
 
     return amount
 
+def get_exchange_rate(selected_option):
+    
+    if selected_option == "1":
+        return 3.40
 
-def convert_currency(selected_option, selected_direction, amount, exchange_rate):
+    elif selected_option == "2":
+        return 3.95
+
+    elif selected_option == "3":
+        return 0.92
+
+    elif selected_option == "4":
+        return 4.60
+
+def convert_currency(selected_direction, amount, exchange_rate):
     if selected_direction == "1":
         amount = amount * exchange_rate
     else:
@@ -113,14 +126,9 @@ while selected_option != "5":
         amount = get_amount()
 
         # Temporary exchange rate (later it will come from an API)
-        exchange_rate = 3.40
+        exchange_rate = get_exchange_rate(selected_option)
 
-        converted_amount = convert_currency(
-            selected_option,
-            selected_direction,
-            amount,
-            exchange_rate
-        )
+        converted_amount = convert_currency(selected_direction, amount, exchange_rate)
 
         show_result(converted_amount)
 
