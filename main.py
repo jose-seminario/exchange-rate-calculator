@@ -40,10 +40,19 @@ while selected_option != "5":
 
         amount = get_amount()
 
-        # Temporary exchange rate (later it will come from an API)
         exchange_rate = get_exchange_rate(selected_option)
 
-        converted_amount = convert_currency(selected_direction, amount, exchange_rate)
+        if exchange_rate is None:
+            print()
+            print("Could not retrieve the exchange rate.")
+            print()
 
-        show_result(converted_amount)
+        else:
+            converted_amount = convert_currency(
+                selected_direction,
+                amount,
+                exchange_rate
+            )
 
+            show_result(converted_amount)
+            
